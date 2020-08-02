@@ -1,2 +1,2 @@
 # 2-JS-Basics
- my course follow along
+ my Jonas JS course follow along  
