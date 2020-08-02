@@ -240,4 +240,4 @@ switch (true) {
     console.log(firstName + "is a young man.");
     break;
 } 
-new
+var
