@@ -239,5 +239,4 @@ switch (true) {
   case age >= 20 && age < 30:
     console.log(firstName + "is a young man.");
     break;
-} 
-var
+}
