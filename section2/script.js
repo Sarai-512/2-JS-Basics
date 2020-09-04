@@ -194,8 +194,8 @@ if (height || height === 0) {
 if (height === "23") {
   console.log("The == operators does type coercion!");
 }
-*/
 
+//--------------what I did
 var oneJohn,
   twoJohn,
   threeJohn,
@@ -210,7 +210,7 @@ oneJohn = 89;
 twoJohn = 120;
 threeJohn = 103;
 oneMike = 116;
-twoMike = 20;
+twoMike = 94;
 threeMike = 123;
 oneMary = 97;
 twoMary = 134;
@@ -228,6 +228,7 @@ console.log(marryAverage);
 johnAverage > mikeAverage
   ? console.log(johnAverage + " Johnes team wins")
   : console.log(mikeAverage + " Mikes team wins");
+ if else if else for a draw^ doesnt include draw
 
 switch (true) {
   case johnAverage < mikeAverage:
@@ -239,4 +240,60 @@ switch (true) {
   case age >= 20 && age < 30:
     console.log(firstName + "is a young man.");
     break;
+}
+//his solution
+if (johnAverage > mikeAverage && johnAverage > marryAverage) {
+  console.log("John's team wins with" + johnAverage + "points");
+} else if (mikeAverage > johnAverage && mikeAverage > marryAverage) {
+  console.log("Mike's team wins with" + mikeAverage + "points");
+} else marryAverage > johnAverage && marryAverage > mikeAverage;
+{
+  console.log("Mary's team wins with " + marryAverage + " points");
+} else {
+  console.log('There is a draw')
+}
+
+//Functions
+
+function calculateAge(birthYear) {
+  return 2018 - birthYear;
+}
+
+var ageJohn = calculateAge(1990);
+var ageMike = calculateAge(1948);
+var ageJane = calculateAge(1969);
+
+console.log(ageJohn, ageMike, ageJane);
+//dont repeat yourself DRY
+//functions call other functions
+function yearsUntilRetirement(year, firstName) {
+  var age = calculateAge(year);
+  var retirement = 65 - age;
+
+  if (retirement > 0) {
+    console.log(firstName + " retires in " + retirement + " years");
+  } else console.log(firstName + " is already retired");
+}
+
+yearsUntilRetirement(1990, "John");
+yearsUntilRetirement(1948, "Mike");
+yearsUntilRetirement(1969, "Jane");
+*/
+//Function Statements and Expressions
+//function declaration
+// function whatDoYouDo(job,firstName){
+
+// }
+
+//function expression
+var wahtDoYouDo = function (job, firstName) {};
+switch (job) {
+  case "teacher":
+    return firstName + " teaches kids how to code";
+  case "driver":
+    return firstName + "drives a cab in Lisbon";
+  case "designer":
+    return firstName + " designs beasutiful websites";
+  default:
+    return firstName + "does something else";
 }
