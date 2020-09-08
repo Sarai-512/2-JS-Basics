@@ -1,4 +1,38 @@
-/******************************** Bacsic operators 
+/******************************** 
+ Varaiables and data types
+ 
+ var firstName = "John";
+ console.log(firstName);
+
+ 
+ var lastName = "Smith";
+ var age = 28;
+
+var fullAge = true;
+console.log(fullAge);
+
+var job;
+console.log(job);
+
+job = 'Teacher';
+console.log(job);
+
+//Varibale naming rules
+var _3years = 3;
+var johnMark = 'John and Mark';
+var if = 23;
+
+
+
+
+
+ Variable mutation and type coercion
+
+
+var 
+
+
+  Bacsic operators 
 var year, yearJohn, yearMark;
 now = 2020;
 ageJohn = 28;
