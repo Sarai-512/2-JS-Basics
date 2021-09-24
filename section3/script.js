@@ -92,6 +92,7 @@ const calcAge = function (birthYeah) {
 const yearsUntilRetirement = function (birthYeah, firstName) {
   const age = calcAge(birthYeah);
   const retirement = 65 - age;
+
   if (retirement > 0) {
     console.log(`${firstName} retires in ${retirement} years`);
     return retirement;
@@ -125,21 +126,81 @@ HINT: To calculate average of 3 values, add them all together and divide by 3
 HINT: To check if number A is at least double number B, check for A >= 2 * B. Apply this to the team's average scores 😉
 GOOD LUCK 😀
 
-*/
+
 
 
 //1. Create an arrow function 'calcAverage' to calculate the average of 3 scores
 
-const calcAverage = (a, b, c) => a + b + c / 3;
+const calcAverage = (a, b, c) => (a + b + c) / 3;
 console.log(calcAverage(3, 4, 5));
 
 //Use the function to calculate the average for both teams
 //Dolphins score 44, 23 and 71. Koalas score 65, 54 and 49
 
-let dolphinsAverage = calcAverage(44,23,71)
-console.log(dolphinsAverage);
+let scoreDolphins = calcAverage(44,23,71)
+let scoreKoalas = calcAverage(65,54,49);
 
-let koalasAverage = calcAverage(65,54,49);
-console.log(koalasAverage);
+console.log(scoreDolphins,scoreKoalas);
 
 //3. Create a function 'checkWinner' that takes the average score of each team as parameters ('avgDolhins' and 'avgKoalas'), and then logs the winner to the console, together with the victory points, according to the rule above. 
+function checkWinner(avgeDolphins, avgKoalas){
+  if (avgeDolphins >= 2 * avgKoalas) {
+    console.log('Dolphines win (${avgDolhins} vs. ${avgKoalas})');
+  } else if (avgKoalas >= 2 * avgeDolphins) {
+    console.log('Koalas win (${aveKoalas} vss ${avgDolhins}')
+  } else {
+    console.log('no teams wins')
+  }
+}
+checkWinner(scoreDolphins, scoreKoalas);
+
+// Test 2
+scoreDolphins = calcAverage(85, 54, 41);
+scoreKoalas = calcAverage(23, 34, 27);
+console.log(scoreDolphins, scoreKoalas);
+checkWinner(scoreDolphins, scoreKoalas);
+//array is a data structer arrays and  object are most important
+---Introduction to Arrays--- 
+const friend1 = 'Sara';
+const friend2 = 'Larisa';
+const friend3 = 'Bird';
+
+
+const friends = ['Sara', 'Larisa', 'Bird']
+console.log(friends);
+
+const y = new Array(1991, 1984, 2008, 2020);
+
+console.log(friends[0]);
+console.log(friends[2]);
+
+console.log(friends.length);
+console.log(friends[friends.length -1]);
+
+
+friends[2] = 'Tessa';
+console.log(friends);
+
+//friends = ['Lili', 'Wolf']
+
+const firstName = 'Bird';
+const jonas = [firstName, 'Craven', 2037 - 1991, 'teacher', friends];
+console.log(jonas);
+console.log(jonas.length);
+
+//Exercise
+const calcAge = function(birthYear){
+  return 2037 - birthYear
+}
+
+const years = [1990, 1967, 2002, 2010, 2018]
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length -1]);
+console.log(age1, age2, age3)
+
+const ages = [calcAge(years[0]),calcAge(years[1]), calcAge(years[years.length -1])];
+console.log(ages)
+
+---Basic Array Operations(methods)--- */
