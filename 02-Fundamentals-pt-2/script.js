@@ -360,7 +360,7 @@ console,log(bird,getSummary)
 //'Bird is a 46 year old teacher.'
 // Coding Challenge #3
 
-/*
+
 Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
 
 1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
@@ -405,4 +405,205 @@ if (mark.bmi > john.bmi) {
   console.log(`${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s BMI (${mark.bmi})`)
 }
 
+ ---Iteration: The for Loop--- 
+
+console.log('Lifting weights repetition1');
+console.log('Lifting weights repetition2');
+console.log('Lifting weights repetition3');
+console.log('Lifting weights repetition4');
+console.log('Lifting weights repetition5');
+console.log('Lifting weights repetition6');
+console.log('Lifting weights repetition7');
+console.log('Lifting weights repetition8');
+console.log('Lifting weights repetition9');
+console.log('Lifting weights repetition10');
+
+//for loop keeps running while condition is TRUE
+
+for(let rep = 1; rep <= 10; rep++){
+  console.log(`Lifting weights repetition ${rep}`)
+}
+
+for(let rep = 2; rep <= 15; rep++){
+  console.log(`bench rep ${rep}`)
+}
+
+---Looping Arrays, Breaking and Continuing---
+
+
+const bird = [
+  'Bird',
+  'Craven',
+  2021-1999,
+  'dev',
+  ['Larisa','Bird','Sarah'],
+  true,
+  
+];
+const types = [];
+
+// console.log(bird[0])
+// console.log(bird[1])
+// ...
+// console.log(bird[4])
+// bird[5] does not exist
+
+//instead of hard coding the number 5 to log all five of the properties we can dynamically calculate the length of the array with bird.length so it will log all the properties that the object
+
+for(let i = 0; i < bird.length ; i++){
+//reading from bird array
+  console.log(bird[i], typeof bird[i]);
+//Filling types of array
+  // types[i] = typeof bird[i];
+  types.push(typeof bird[i]);
+} 
+
+console.log(types);
+
+//calculate the ages in the array  and store them in a new array
+const years = [1991, 2007, 1969, 2020];
+const ages = []
+
+for (let i = 0; i < years.length; i++){
+  ages.push(2021 - years[i]);
+}
+
+console.log(ages)
+
+//continue and break
+// i== means is not
+//only strings
+for(let i = 0; i < bird.length ; i++){
+
+    if(typeof bird[i] !== 'string') continue;
+
+    console.log(bird[i], typeof bird[i]);
+  } 
+
+//break with number
+  for(let i = 0; i < bird.length ; i++){
+
+    if(typeof bird[i] === 'number') break;
+
+    console.log(bird[i], typeof bird[i]);
+  } 
+
+  ---Looping Backwrads and Loops in Loops
+  
+
+
+const bird = [
+  'Bird',
+  'Craven',
+  2021-1999,
+  'dev',
+  ['Larisa','Bird','Sarah'],
+  true
+];
+
+//0,1, ..., 4
+//4,3, ..., 0
+
+for(let i = bird.length - 1; i >= 0; i-- ){
+  console.log(i, bird[i]);
+}
+
+for (let exercise = 1; exercise <=3; exercise++ ) {
+  console.log(`------ Starting exercise----- ${exercise}`);
+
+  for (let rep = 1; rep <6; rep++){
+    console.log(`excerise ${exercise} Lifting weight reptition ${rep}`)
+  }
+}
+
+----The while loop----
+
+
+// for (let rep = 1; rep <= 10; rep++){
+//   console.log(`Lifting weights repetition ${rep}`);
+// }
+
+//the while loop is more versatile because does NOT NEED A COUNTER just needs a condtion that need to be true 
+
+let rep = 1;
+while (rep <= 10) {
+  console.log(` While Lifting weights repetition ${rep}`);
+  rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+while (dice !==6) {
+  console.log(`you rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) console.log('Loop is about to end...');
+}
+
+Let's improve Steven's tip calculator even more, this time using loops!
+
+1. Create an array 'bills' containing all 10 test bill values
+2. Create empty arrays for the tips and the totals ('tips' and 'totals')
+3. Use the 'calcTip' function we wrote before (no need to repeat) to calculate tips and total values (bill + tip) for every bill value in the bills array. Use a for loop to perform the 10 calculations!
+
+TEST DATA: 22, 295, 176, 440, 37, 105, 10, 1100, 86 and 52
+
+HINT: Call calcTip in the loop and use the push method to add values to the tips and totals arrays 😉
+
+4. BONUS: Write a function 'calcAverage' which takes an array called 'arr' as an argument. This function calculates the average of all numbers in the given array. This is a DIFFICULT challenge (we haven't done this before)! Here is how to solve it:
+  4.1. First, you will need to add up all values in the array. To do the addition, start by creating a variable 'sum' that starts at 0. Then loop over the array using a for loop. In each iteration, add the current value to the 'sum' variable. This way, by the end of the loop, you have all values added together
+  4.2. To calculate the average, divide the sum you calculated before by the length of the array (because that's the number of elements)
+  4.3. Call the function with the 'totals' array
+
+
+
+const calcTip = function (bill) {
+  return  bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+  }
+
+const bills = [ 22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+const tips = [];
+const totals = [];
+
+for (let i = 0; i < bills.length; i++) {
+    const tip = calcTip(bills[i]);
+    tips.push(tip);
+    totals.push(tip + bills[i]);
+}
+
+console.log(bills, tips, totals);
+
+const calcAverage = function(arr){
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  return sum / arr.length;
+}
+//  return sum / arr.length; is 2+3+7=12/3 the amount of numbers in the array = 4 this shows that the funtion is working to find the avarage now to find the average of what ever we want we can put totals and tips to find thoes avarages 
+console.log(calcAverage([2,3,7]));
+
+console.log(calcAverage(totals));
+console.log(calcAverage(tips));
+
+
+// const calcTip = function (bill) {
+//   return  bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// }
+
+// const bills = [125, 555, 44]
+
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+// const totals = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+
+// console.log(bills, tips, totals);
+
+//calculate the ages in the array  and store them in a new array
+// const years = [1991, 2007, 1969, 2020];
+// const ages = []
+
+// for (let i = 0; i < years.length; i++){
+//   (2021 - years[i]);
+// }
 */
