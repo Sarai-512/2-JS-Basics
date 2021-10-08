@@ -39,9 +39,124 @@ const flights =
         console.log(`Here is your declicious pasta with ${ing1}, ${ing2} and ${ing3}`);
       },
 
+      orderPizza(mainIngredient, ...otherIngredients) {
+        console.log(mainIngredient);
+        console.log(otherIngredients);
+      },
+
 
   };
 
+  const game = {
+    team1: 'Bayern Munich',
+    team2: 'Borrussia Dortmund',
+    players: [
+    [
+    'Neuer',
+    'Pavard',
+    'Martinez',
+    'Alaba',
+    'Davies',
+    'Kimmich',
+    'Goretzka',
+    'Coman',
+    'Muller',
+    'Gnarby',
+    'Lewandowski',
+    ],
+    [
+    'Burki',
+    'Schulz',
+    'Hummels',
+    'Akanji',
+    'Hakimi',
+    'Weigl',
+    'Witsel',
+    'Hazard',
+    'Brandt',
+    'Sancho',
+    'Gotze',
+    ],
+    ],
+    score: '4:0',
+    scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
+    'Hummels'],
+    date: 'Nov 9th, 2037',
+    odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+    },
+    };
+//my answer numb 1.
+// const players1 = [game.players]; 
+// const players2 = [game.players];
+//the awnser numb 1 
+const [players1,players2] = game.players;
+console.log(players1, players2);
+///numb 2 the answer 
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+//num 3 my answer  
+const allPlayers = players1.concat(players2); 
+console.log(allPlayers);
+//numb 4 my anwser
+const players1Final = players1.push('Thiago', 'Coutinho','Perisic');
+console.log(players1Final)
+//the answer 
+// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Periscic'];
+// console.log(players1Final)
+//numb 5 the answer
+const { odds: { team1, x: draw, team2 },} = game;
+console.log(team1, draw, team2);
+//numb 6 
+const printGoals = function(playersIndex){
+  return players.length 
+}
+//num 6 the answers 
+// const printGoals = function (...players) {
+//   console.log(players);
+//   console.log(`${players.length} goals were scored`);
+// };
+
+// printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+// printGoals('Davies', 'Muller');
+// printGoals(...game.scored);
+//numb 7 the answer 
+team1 < team2 && console.log('Team 1 is more likely to win');
+team1 > team2 && console.log('Team 2 is more likely to win');
+
+
+  /*
+ // Rest Pattern and Parameters
+// 1) Destructuring
+// SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+// REST, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+// 2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+const x = [23, 5, 7];
+add(...x);
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
+/*
   const arr = [7,8,9];
   const badNewArr = [1,2, arr[0], arr[1], arr[2]];
   console.log(badNewArr);
@@ -77,9 +192,6 @@ const ingredients = [
 ];
 console.log(ingredients);
 
-
-
-/*
   restaurant.orderDelivery({
     time: '22:30',
     address: 'Via del sole, 21',
