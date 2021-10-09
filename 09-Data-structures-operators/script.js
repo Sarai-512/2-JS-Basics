@@ -4,6 +4,8 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+  // const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
   // Data needed for first part of the section
   const restaurant = {
     name: 'Classico Italiano',
@@ -12,6 +14,7 @@ const flights =
     starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
     mainMenu: ['Pizza', 'Pasta', 'Risotto'],
   //nested object
+
     openingHours: {
       thu: {
         open: 12,
@@ -46,6 +49,42 @@ const flights =
 
 
   };
+
+  if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+  // console.log(restaurant.openingHours.mon.open);
+
+  //WITH opetional chaining when there is a lot of nested arrays/objects
+  console.log(restaurant.openingHours.mon?.open); 
+  console.log(restaurant.openingHours?.mon?.open); 
+  //Example
+  const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+  for (const day of days) {
+    console.log(day);
+    restaurant.openingHours[day]
+    const open = restaurant.openingHours[day]?.open || 'closed';
+    console.log(`on ${day}, we are open at ${open}.`)
+  }
+
+  
+
+
+/*
+//The for-of loop
+  const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+    for (const item of menu) console.log(item);
+    //really was ment for just current element but can get both element and index
+    for (const [i, el] of menu.entries()) {
+    console.log(`${i + 1}: ${el}`);
+}
+
+
+// console.log([...menu.entries()]);
+
+
 
   const game = {
     team1: 'Bayern Munich',
@@ -106,7 +145,7 @@ console.log(players1Final)
 //the answer 
 // const players1Final = [...players1, 'Thiago', 'Coutinho', 'Periscic'];
 // console.log(players1Final)
-//numb 5 the answer
+//numb 5 the answer its nested 
 const { odds: { team1, x: draw, team2 },} = game;
 console.log(team1, draw, team2);
 //numb 6 
