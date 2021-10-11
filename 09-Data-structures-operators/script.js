@@ -49,7 +49,57 @@ const flights =
 
 
   };
-  /*
+
+
+  const game = {
+    team1: 'Bayern Munich',
+    team2: 'Borrussia Dortmund',
+    players: [
+    [
+    'Neuer',
+    'Pavard',
+    'Martinez',
+    'Alaba',
+    'Davies',
+    'Kimmich',
+    'Goretzka',
+    'Coman',
+    'Muller',
+    'Gnarby',
+    'Lewandowski',
+    ],
+    [
+    'Burki',
+    'Schulz',
+    'Hummels',
+    'Akanji',
+    'Hakimi',
+    'Weigl',
+    'Witsel',
+    'Hazard',
+    'Brandt',
+    'Sancho',
+    'Gotze',
+    ],
+    ],
+    score: '4:0',
+    scored: ['Lewandowski', 'Gnarby', 'Lewandowski',
+    'Hummels'],
+    date: 'Nov 9th, 2037',
+    odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+    },
+    };
+// numb 1 my answer 
+// console.log(game.scored[0], `Goal: ${game.scored[0]}`);
+  // for (i = 0; i < scored.length; i++)
+  // console.log(( i + 1) + ' : ' + game.scored[i]);
+//numb 1 the answer
+for (const [i, player] of game.scored.entries())
+  console.log(`Goal ${i + 1}: ${player}`);
+
 // Coding Challenge #2
 
 /* 
@@ -79,6 +129,7 @@ BONUS: Create an object called 'scorers' which contains the names of the players
     openStr += `${day}, `;
   }
   console.log(openStr);
+
   // Property VALUES
   const values = Object.values(openingHours);
   console.log(values);
