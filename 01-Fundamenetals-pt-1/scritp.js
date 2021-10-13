@@ -422,7 +422,29 @@ Steven wants to build a very simple tip calculator for whenever he goes eating i
 
 TEST DATA: Test for bill values 275, 40 and 430
 
+
+
+//My second attempt  
+let bill = 40;
+let tip = 6;
+let total = bill + tip;
+console.log(total);
+
+if (bill > 50 < 100) {
+  console.log(bill * .15);
+} else {
+  console.log(bill * .20);
+}
+
+const bill = 40;
+let tip = bill >= 50 && < 100 ? console.log(bill * .15); : console.logconsole.log(bill * .20);
+
+
+console.log(`This bill was for ${bill} and the tip was ${tip} , and the total value is ${total} `);
+*/
+// let finalValue = 
+
+//the answer
 const bill = 40;
 const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;
 console.log(`The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`);
-*/
