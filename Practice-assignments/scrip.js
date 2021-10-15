@@ -167,13 +167,13 @@ when you input 1
 situation
 */
 
-const numNeighbours = Number(prompt('How many neighbour countries does your countryhave?'));
-console.log(numNeighbours);
+// const numNeighbours = Number(prompt('How many neighbour countries does your countryhave?'));
+// console.log(numNeighbours);
 
-if (numNeighbours == 1) { 
-    console.log('Only 1 border!'); 
-} else  (numNeighbours ===1 ) { 
-    console.log('More than 1 border');
-} else () {
+// if (numNeighbours == 1) { 
+//     console.log('Only 1 border!'); 
+// } else  (numNeighbours ===1 ) { 
+//     console.log('More than 1 border');
+// } else () {
 
-}
+// }
