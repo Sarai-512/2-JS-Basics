@@ -174,6 +174,7 @@ situation
 //     console.log('Only 1 border!'); 
 // } else  (numNeighbours ===1 ) { 
 //     console.log('More than 1 border');
-// } else () {
+// } else (numNeighbours === 0) {
+    console.log('No borders');
 
 // }
