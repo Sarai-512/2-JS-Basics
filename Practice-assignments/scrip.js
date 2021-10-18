@@ -1,5 +1,6 @@
 
 /* 
+JS pt 1
 -----LECTURE: Values and Variables-----
 1. Declare variables called 'country', 'continent' and 'population' and 
 assign their values according to your own country (population in millions)
@@ -178,12 +179,13 @@ const numNeighbours = Number(prompt('How many neighbour countries does your coun
 
  if (numNeighbours == 1) { 
      console.log('Only 1 border!'); 
- } else  (numNeighbours ===1 ) { 
+ } else  (numNeighbours === 1 )  // should be  else if (numNeighbours > 1) but could have been changed to see the diff { 
      console.log('More than 1 border');
- } else (numNeighbours === 0) {
+ } else (numNeighbours === 0) // this is not needed because itll be the last option basic {
     console.log('No borders');
-
  }
+
+
 
  -----LECTURE: Logical Operators-----
 1. Comment out the previous code so the prompt doesn't get in the way
@@ -198,7 +200,7 @@ not, log 'Portugal does not meet your criteria :('
 5. Probably your country does not meet all the criteria. So go back and temporarily 
 change some variables in order to make the condition true (unless you live in 
 Canada :D
- */
+
 
 const country = usa;
 const countryPop= 10000;
@@ -229,3 +231,17 @@ Otherwise, simply log 'Portugal's population is below average'. Notice how only
 one word changes between these two sentences!
 2. After checking the result, change the population temporarily to 13 and then to 
 130. See the different results, and set the population back to origina
+
+----JS pt 2-----
+
+------LECTURE: Iteration: The for Loop------
+1. There are elections in your country! In a small town, there are only 50 voters. 
+Use a for loop to simulate the 50 people voting, by logging a string like this to 
+the console (for numbers 1 to 50): 'Voter number 1 is currently voting
+
+
+*/
+
+for (let voter = 1; voter<=50; voter++) {
+    console.log(`Voter number ${voter} is currently voting`);
+}
