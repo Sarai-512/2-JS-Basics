@@ -71,21 +71,28 @@ const isIsland = false;
 const finlandPop = 6000000;
 const countryAverage = 33000000;
 
-//1. 
+//1. My answer
 const countrySplit = (population/4);
 console.log(countrySplit);
-//2.
+// Given answer
+console.log(population/2);
+
+//2. My answer
 console.log(population + 1)
+// Given answer
+population++;
 
-//3.
-
+//3. My answer
 console.log(population > finlandPop );
+// Given answer
+console.log(population>6);
 
-//4.
-
+//4. My answer
 console.log(population > countryAverage);
+// Given answer
+console.log(population< 33);
 
-//5.
+//5. My answer === good
 
 let description = `${country} is in ${continent} and its ${population} million people speak ${language}`;
 
