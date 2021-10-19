@@ -239,9 +239,51 @@ one word changes between these two sentences!
 Use a for loop to simulate the 50 people voting, by logging a string like this to 
 the console (for numbers 1 to 50): 'Voter number 1 is currently voting
 
-
-*/
-
 for (let voter = 1; voter<=50; voter++) {
     console.log(`Voter number ${voter} is currently voting`);
 }
+
+*/
+///////////////////////////////////
+/*
+LECTURE: Functions
+1. Write a function called 'describeCountry' which takes three parameters: 
+'country', 'population' and 'capitalCity'. Based on this input, the 
+function returns a string with this format: 'Finland has 6 million people and its 
+capital city is Helsinki'
+2. Call this function 3 times, with input data for 3 different countries. Store the 
+returned values in 3 different variables, and log them to the console
+
+//num 1 my answer 
+const describeCountry = function (country,population,capitalCity) {
+    console.log(`${country} has ${population} million people and its capital city is ${capitalCity}`)
+
+};
+//num 2 my answer
+describeCountry('Usa', 329 ,'Washington DC');
+describeCountry('Australia', 26 , 'Canberra');
+describeCountry('Japan',126, 'Tokyo');
+
+---- Function Declarations vs. Expressions----
+
+//num 1 & 2 my answer
+//decleration
+function percentageOfWorld1 (population){
+    return (population/ 7900) * 100 ;
+}
+
+console.log(percentageOfWorld1(329));
+//numb 3 my answer
+const population1 = percentageOfWorld1(239);
+const population2 = percentageOfWorld1(26);
+const population3 = percentageOfWorld1(126);
+console.log(population1,population2,population3);
+
+//num 4 my answer
+//expression
+const describeCountry = function ( population){
+    return (population/ 7900) * 100 ;
+}
+
+//----Arrow Functions----
+*/
