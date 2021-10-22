@@ -1,2 +1,2 @@
 # 2-JS-Basics
- my Jonas JS course follow along  
+ my Jonas JS course follow along and assignments  
