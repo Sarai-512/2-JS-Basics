@@ -244,7 +244,7 @@ for (let voter = 1; voter<=50; voter++) {
 }
 
 */
-///////////////////////////////////
+
 /*
 LECTURE: Functions
 1. Write a function called 'describeCountry' which takes three parameters: 

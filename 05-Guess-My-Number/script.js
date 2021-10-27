@@ -5,7 +5,7 @@ console.log(document.querySelector(".message").textContent);
 //DOM and DOM Manipulation
 Document Object model: structured representation of html documents allows javascript to access html elements and styles to manipulate them -- change text html attributes, and css styles 
 
-dom methods and properties for dom maniplation is not part of js its the web api that allows us to usa js to maniplate the webpage there are other api = application programming interface 
+dom methods and properties for dom maniplation is not part of js its the web api that allows us to use js to maniplate the webpage there are other api = application programming interface 
 such as timers and fetch 
 
  document.querySelector(".message").textContent = "Correct Number!";
@@ -51,7 +51,7 @@ document.querySelector('.check').addEventListener('click', function(){
             document.querySelector('.score').textContent = 0;
         }
     }    
-    //could now delete all of this becasue of conditinal turnert=y operator 
+    //could now delete all of this becasue of conditinal turnerty operator 
 
     }else if (guess > secretNumber){
         if(score > 1){

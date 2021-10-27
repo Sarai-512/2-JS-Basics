@@ -558,6 +558,7 @@ while (dice !==6) {
   if (dice === 6) console.log('Loop is about to end...');
 }
 
+coding challenge # 4
 Let's improve Steven's tip calculator even more, this time using loops!
 
 1. Create an array 'bills' containing all 10 test bill values
@@ -572,8 +573,6 @@ HINT: Call calcTip in the loop and use the push method to add values to the tips
   4.1. First, you will need to add up all values in the array. To do the addition, start by creating a variable 'sum' that starts at 0. Then loop over the array using a for loop. In each iteration, add the current value to the 'sum' variable. This way, by the end of the loop, you have all values added together
   4.2. To calculate the average, divide the sum you calculated before by the length of the array (because that's the number of elements)
   4.3. Call the function with the 'totals' array
-
-
 
 const calcTip = function (bill) {
   return  bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
@@ -624,18 +623,6 @@ console.log(calcAverage(tips));
 // for (let i = 0; i < years.length; i++){
 //   (2021 - years[i]);
 // }
-
-
-Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
-
-1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
-
-2. Create a 'calcBMI' method on each object to calculate the BMI (the same method on both objects). Store the BMI value to a property, and also return it from the method.
-
-3. Log to the console who has the higher BMI, together with the full name and the respective BMI. Example: "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
-TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
-GOOD LUCK
-
 
 */
 
