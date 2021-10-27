@@ -52,13 +52,19 @@ const flights =
 
 /*
 
-------String Methods Practice----- 
+------String Methods Practice-----                                                            
+Coding Challenge #5 
 const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25
+  +_Arrival;bru0943384722;fao93766109;11:45
+  +_Delayed_Arrival;hel7439299980;fao93766109;12:05
+  +_Departure;fao93766109;lis2323639855;12:30';
 // 🔴 Delayed Departure from FAO to TXL (11h25)
 //              Arrival from BRU to FAO (11h45)
 //   🔴 Delayed Arrival from HEL to FAO (12h05)
 //            Departure from FAO to LIS (12h30)
+
+
 const getCode = str => str.slice(0, 3).toUpperCase();
 for (const flight of flights.split('+')) {
   const [type, from, to, time] = flight.split(';');
@@ -72,12 +78,14 @@ for (const flight of flights.split('+')) {
 ------Coding Challenge #4-----
 Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
 The input will come from a textarea inserted into the DOM (see code below), and conversion will happen when the button is pressed.
+
 THIS TEST DATA (pasted to textarea)
 underscore_case
- first_name
+first_name
 Some_Variable 
-  calculate_AGE
+calculate_AGE
 delayed_departure
+
 SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
 underscoreCase      ✅
 firstName           ✅✅
@@ -93,24 +101,27 @@ GOOD LUCK 😀
 
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
+
 document.querySelector('button').addEventListener('click', function () {
   const text = document.querySelector('textarea').value;
+  //split the string into multiple elements
   const rows = text.split('\n');
 
   for (const [i, row] of rows.entries()) {
+    //destrutre into two varables
     const [first, second] = row.toLowerCase().trim().split('_');
-    const output = `${first}${second.replace(
-      second[0],
-      second[0].toUpperCase()
-    )}`;
+    const output = `${first}${second.replace(second[0], second[0].toUpperCase())}`;
+    //use cruent index need to use the entries ^  
     console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
   }
 });
 
 --------Working With Strings - Part 3-------
-// Split and join
+// Split and join 
+//Will use all the time
 
 console.log('a+very+nice+string'.split('+'));
+// this makes two elements
 console.log('Jonas Schmedtmann'.split(' '));
 
 const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
@@ -121,7 +132,7 @@ const capitalizeName = function (name) {
   const names = name.split(' ');
   const namesUpper = [];
   for (const n of names) {
-    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));  we can do it this way or the way below 
     namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
   }
   console.log(namesUpper.join(' '));
@@ -137,6 +148,9 @@ const message = 'Go to gate 23!';
 console.log(message.padStart(20, '+').padEnd(30, '+'));
 console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
 
+//Real world situaution when you see a credit card number on a website you usally dont see all the numvers but some are hidden
+//can youput this in a form like when you check out and put your card number and then as the user fills the rest the stars show?
+
 const maskCreditCard = function (number) {
   const str = number + '';
   const last = str.slice(-4);
@@ -151,6 +165,7 @@ console.log(maskCreditCard('334859493847755774747'));
 const message2 = 'Bad waether... All Departues Delayed... ';
 console.log(message2.repeat(5));
 
+//how can you put this as a loop to loop the planesInLines
 const planesInLine = function (n) {
   console.log(`There are ${n} planes in line ${'🛩'.repeat(n)}`);
 };
@@ -173,12 +188,13 @@ const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(
 console.log(passengerCorrect);
 
 // Comparing emails
+//enter character \n
 const email = 'hello@jonas.io';
 const loginEmail = '  Hello@Jonas.Io \n';
 
 // const lowerEmail = loginEmail.toLowerCase();
 // const trimmedEmail = lowerEmail.trim();
-
+//trim from the start or the end 
 const normalizedEmail = loginEmail.toLowerCase().trim();
 console.log(normalizedEmail);
 console.log(email === normalizedEmail);
@@ -193,22 +209,27 @@ const announcement = 'All passengers come to boarding door 23. Boarding door 23!
 
 console.log(announcement.replace('door', 'gate'));
 // console.log(announcement.replaceAll('door', 'gate'));
+//regulare expression g stands for global  and other way to type replaceAll
 console.log(announcement.replace(/door/g, 'gate'));
 
 // Booleans
 const plane = 'Airbus A320neo';
 
-console.log(plane.includes('A320'));
-console.log(plane.includes('Boeing'));
-console.log(plane.startsWith('Airb'));
+console.log(plane.includes('A320')); // --got right 
+console.log(plane.includes('Boeing')); //false --got right
+console.log(plane.startsWith('Airb')); //true --got right 
 
+// methods .startWith .endsWith
 if (plane.startsWith('Airbus') && plane.endsWith('neo')) {
   console.log('Part of the NEW ARirbus family');
 }
 
 
 // Practice exercise
+//----check to see if baggages can go on the plane---
+
 const checkBaggage = function (items) {
+  //this we use all the time to take user input and make it lowercase to make sure we can check the input beacuse an uppercase would make it different 
   const baggage = items.toLowerCase();
   if (baggage.includes('knife') || baggage.includes('gun')) {
     console.log('You are NOT allowed on board');
@@ -221,6 +242,9 @@ const checkBaggage = function (items) {
 checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun for protection');
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('I have gummy bears and a hersheys bar and a swill knife');
 
 
 -----Working With Strings - Part 1-----
@@ -238,14 +262,24 @@ console.log('B737'.length);
 console.log(airline.indexOf('r'));
 console.log(airline.lastIndexOf('r'));
 console.log(airline.indexOf('portugal'));
-
+//(4) below is the begin parameter. its the position at //which the extraction will start
+//sub string a part of the original string strings are primirtives so they can not be mutated 
 console.log(airline.slice(4));
+
+//(7) is the end paramater end value is not included in string since it stops at a space 
+//lenght of extracted string will be 7-4=3
 console.log(airline.slice(4, 7));
+
+//when we dont know the string and dont hard code the values 
+//we want to extract tap the first word so we will start at index of zero and end when there is a a space 
 console.log(airline.slice(0, airline.indexOf(' ')));
+//extract the last word + one takes away the space
 console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+//define a negative begin argument, extracting from the end 
 console.log(airline.slice(-2));
 console.log(airline.slice(1, -1));
 
+//practice sliceing 
 const checkMiddleSeat = function (seat) {
   const s = seat.slice(-1);
   if (s === 'B' || s === 'E') console.log('You got the middle seat 😬');
@@ -286,6 +320,28 @@ const gameEvents = new Map([
   [80, '⚽️ GOAL'],
   [92, '🔶 Yellow card'],
 ]);
+
+// 1.
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+// 2.
+gameEvents.delete(64);
+// 3.
+console.log(
+  `An event happened, on average, every ${90 / gameEvents.size} minutes`
+);
+const time = [...gameEvents.keys()].pop();
+console.log(time);
+console.log(
+  `An event happened, on average, every ${time / gameEvents.size} minutes`
+);
+// 4.
+//for (const [key, value]
+for (const [min, event] of gameEvents) {
+  const half = min <= 45 ? 'FIRST' : 'SECOND';
+ // external variable of half
+  console.log(`[${half} HALF] ${min}: ${event}`);
+}
 
   -----Maps: Iteration-----
   const question = new Map([
@@ -430,26 +486,12 @@ const gameEvents = new Map([
   // for (i = 0; i < scored.length; i++)
   // console.log(( i + 1) + ' : ' + game.scored[i]);
 //numb 1 the answer
+// [i, player] index of player
 // for (const [i, player] of game.scored.entries())
 //   console.log(`Goal ${i + 1}: ${player}`);
 
 // Coding Challenge #2
 
-1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
-2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
-3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
-      Odd of victory Bayern Munich: 1.33
-      Odd of draw: 3.25
-      Odd of victory Borrussia Dortmund: 6.5
-Get the team names directly from the game object, don't hardcode them (except for "draw"). HINT: Note how the odds and the game objects have the same property names 😉
-BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
-      {
-        Gnarby: 1,
-        Hummels: 1,
-        Lewandowski: 2
-      }
-
- 
 Let's continue with our football betting app!
 1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
 2. Use a loop to calculate the average odd and log it to the console (We already studied how to calculate averages, you can go check if you don't remember)
@@ -465,9 +507,31 @@ BONUS: Create an object called 'scorers' which contains the names of the players
         Lewandowski: 2
       }
 
+// 1.
+//destructre to index and player 
+for (const [i, player] of game.scored.entries())
+  console.log(`Goal ${i + 1}: ${player}`);
 
+// 2.
+//we can refactactor DRY the odds
+const odds = Object.values(game.odds);
+let average = 0;
+//do we want the keys or the values in this case we are really just intresed in the values
+//object.values will gives us the three values
+//for (const odd of Object.values(game.odds))
+for (const odd of odds) average += odd;
+//average += odd;
+//avarge /= object.values(gamae.odds)
+average /= odds.length;
+console.log(average);
 
- // Looping Objects: Object Keys, Values, and Entries
+// 3.
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
+
+ // ------Looping Objects: Object Keys, Values, and Entries-----
   // Property NAMES
   const properties = Object.keys(openingHours);
   console.log(properties);
@@ -487,8 +551,6 @@ BONUS: Create an object called 'scorers' which contains the names of the players
   for (const [day, { open, close }] of entries) {
     console.log(`On ${day} we open at ${open} and close at ${close}`);
   }
-
-  
 
   if (restaurant.openingHours && restaurant.openingHours.mon)
   console.log(restaurant.openingHours.mon.open);

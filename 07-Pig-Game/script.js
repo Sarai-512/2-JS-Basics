@@ -26,7 +26,7 @@ let scores, currentScore, activePlayer, playing;
 // let activePlayer = 0;
 // let playing = true;
 
-
+//this is to start the game and reset the game once someone has won
 const init = function(){
     
     scores = [0,0];
