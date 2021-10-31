@@ -24,7 +24,7 @@ creatBooking('LH123', 5);
 
 creatBooking('LH123', undefined, 10000);
 
-//How Passing Arguments Works: Values vs. Reference
+//-----How Passing Arguments Works: Values vs. Reference
 const flight = 'LH234';
 const jonas = {
     name: 'jonas Schedtmann',
@@ -49,20 +49,12 @@ const checkIn = function (flightNum, passenger) {
 //   const flightNum = flight;
 //   const passenger = jonas;
 
-  const newPassport = function(person){
-      person.passport = Math.trunc(Math.random() * 10000000000);
-  }
+const newPassport = function (person) {
+  person.passport = Math.trunc(Math.random() * 100000000000);
+};
+newPassport(jonas);
+checkIn(flight, jonas);
 
-  newPassport (jonas);
-  checkIn(flight, jonas);
-
-    const newPassport = function(person){
-      person.passport = Math.trunc(Math.random() * 10000000000);
-  }
-
-  newPassport (jonas);
-  checkIn(flight, jonas);
- 
   */
 
-//Functions Acc
+//Functions Accepting Callback Functions
