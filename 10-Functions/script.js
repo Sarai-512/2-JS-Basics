@@ -107,4 +107,58 @@ greet('Hello')('Jonas');
 const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 greetArr('Hi')('Jonas');
 
-*/
+ //[-------The call and apply Methods------] */
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+
+  // book: function() {}
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(239, 'Jonas Schmedtmann');
+lufthansa.book(635, 'John Smith');
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+const book = lufthansa.book;
+// Does NOT work
+//is no longer a method is now a function a regular function allnow the this key word will now be undefined how to do we fix this ?
+// book(23, 'Sarah Williams');
+
+//---- Call method----
+// functions are really like an objects so functions can also have methods  
+//the first argument is what we want the this key word to point too
+book.call(eurowings, 23, 'Sarah Williams');
+console.log(eurowings);
+
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log(lufthansa);
+//an other example
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 583, 'Mary Cooper');
+
+
+// ---Apply method---
+// apply does not recive a list of arguments but insteads it will take an array have a better way --- use the spread operator 
+const flightData = [583, 'George Cooper'];
+book.apply(swiss, flightData);
+console.log(swiss);
+
+//this is the same as the above
+book.call(swiss, ...flightData);
