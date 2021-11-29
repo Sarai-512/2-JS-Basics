@@ -154,7 +154,7 @@ const swiss = {
 book.call(swiss, 583, 'Mary Cooper');
 
 
-// ---Apply method---
+//------Apply method---------
 // apply does not recive a list of arguments but insteads it will take an array have a better way --- use the spread operator 
 const flightData = [583, 'George Cooper'];
 book.apply(swiss, flightData);
@@ -163,8 +163,9 @@ console.log(swiss);
 //this is the same as the above
 book.call(swiss, ...flightData);
 
-//The bind Method
+//--------The bind Method---------------
 // book.call(eurowings, 23, 'Sarah Williams');
+
 const bookEW = book.bind(eurowings);
 const bookLH = book.bind(lufthansa);
 const bookLX = book.bind(swiss);
@@ -183,16 +184,21 @@ lufthansa.buyPlane = function () {
 };
 
 // lufthansa.buyPlane();
-document
-  .querySelector('.buy')
-  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
-// Partial application
+document.querySelector('.buy').addEventListener
+('click', lufthansa.buyPlane.bind(lufthansa));
+
+
+//---- Partial application(means we can preset parameters)---- use case for bind menthod 
 const addTax = (rate, value) => value + value * rate;
 console.log(addTax(0.1, 200));
 const addVAT = addTax.bind(null, 0.23);
+//value added tax , null beacuse we dont care about the this key word right now
+
 // addVAT = value => value + value * 0.23;
 console.log(addVAT(100));
 console.log(addVAT(23));
+
+// a function that returns another function
 const addTaxRate = function (rate) {
   return function (value) {
     return value + value * rate;
@@ -232,4 +238,132 @@ BONUS: Use the 'displayResults' method to display the 2 arrays in the test data.
 BONUS TEST DATA 1: [5, 2, 3]
 BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 GOOD LUCK 😀
-*/
+
+
+const poll = {
+  question: 'What is your fracourite programming language?',
+  options: ['0: JavaScript' , '1: Python' , '2 Rust' , '3: C++'],
+  //this generates [0,0,0,0].More in the next section,
+  answers:new Array(4).fill(0),
+
+   registerNewAnswer() {
+     //get answer
+     const answer = Number( promt(`${this.question}\n${this.options.join('\n')}\n(Write option number)`)
+     );
+     console.log(answer);
+
+    // Register answer
+
+     typeof answer === 'number' && answer < this.answers.length && this.answers[answer]++;
+     this.displayResults();
+     this.displayResults('string');
+   },
+
+   displayResults(type = 'array') {
+     if (type === 'array') {
+       console.log(this.answers);
+     } else if (type === 'string') {
+       // Poll results are 13, 2, 4, 1
+       console.log(`Poll results are ${this.answers.join(', ')}`);
+     }
+   },
+};
+
+document.querySelector('.poll').addEventListener
+('click', poll.registerNewAnswer.bind(poll));
+
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
+
+// [5, 2, 3]
+// [1, 5, 3, 9, 6, 1]
+
+
+//--------Immediately Invoked Function Expressions----------
+//a fucntion that is used only once, disapears once it done
+
+const runOnce = function() {
+  console.log('This will never run again');
+};
+
+runOnce();
+// ( ) makes function into an expression
+(function(){
+  console.log('This will never run again');
+  const isPrivate= 23;
+})();
+
+// console.log(isPrivate); //will not get because of scope, encapsulation
+
+(() => console.log('This will ALSO never run again'))
+();
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+//console.log(isPrivate);
+console.log(notPrivate); // can access 
+
+//----Closures-----
+//we dont create closures manually, they happen 
+
+const secureBooking = function() {
+  let passengerCount = 0;
+
+  return function(){
+    passengerCount++;
+    console.log(`${passengerCont} passengers`);
+  }
+}
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
+ */
+// ------More Closure Examples------
+// -----Example 1----
+let f; //empty variable , defined outside global scope
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f();
+
+console.dir(f);
+// Re-assigning f function by h 
+h();
+f();
+console.dir(f);
+
+// ----Example 2----
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+
+  }, wait * 1000);
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+const perGroup = 1000;
+boardPassengers(180, 3);
+
