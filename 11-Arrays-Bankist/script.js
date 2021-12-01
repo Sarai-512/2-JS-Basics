@@ -1,5 +1,5 @@
 'use strict';
-/*
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // BANKIST APP
@@ -78,8 +78,26 @@ const displayMovements = function (movements){
 };
 displayMovements(account1.movements)
 
-console.log(containerMovements.innerHTML);
+const user = 'Steven Thomas Williams';// stw 
+// const username = user.toLowerCase().split(' ').map(function(name){
+//   return name[0];
+// }).join('')
 
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+createUsernames(accounts)
+
+// console.log(containerMovements.innerHTML);
+
+/*
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -208,16 +226,28 @@ HINT: Use tools from all lectures in this section so far 😉
 TEST DATA 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
 TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 
-*/
+
 //1 my answer 
 let arr1J = [3, 5, 2, 12, 7];
 let arr2K = [4, 1, 15, 8, 3];
 
 console.log(arr1J.slice(1,-2));
 
+//1 his answer
+const checkDogs = function (dogsJulia, dogsKate) {
+  const dogsJuliaCorrected = dogsJulia.slice();
+  dogsJuliaCorrected.splice(0, 1);
+  dogsJuliaCorrected.splice(-2);
+  // dogsJulia.slice(1, 3);
+
 //2 my answer 
 const arr1JC = arr1J.slice(1,-2);
 console.log([ ...arr1JC, ...arr2K]);
+
+//2 his answer
+const dogs = dogsJuliaCorrected.concat(dogsKate);
+  console.log(dogs);
+
 
 //3 my answer 
 const dogs = [ ...arr1JC, ...arr2K] ;
@@ -231,6 +261,44 @@ for (const age of dogs) {
     }
   }
 }
+
+// 3 his answer
+dogs.forEach(function (dog, i) {
+  if (dog >= 3) {
+    console.log(`Dog number ${i + 1} is an adult, and is ${dog} years old`);
+  } else {
+    console.log(`Dog number ${i + 1} is still a puppy 🐶`);
+  }
+});
+};
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+
+
+//-----The map Method-----
+const eurToUsd = 1.1;
+
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+const movementsUSD = movements.map(mov => mov * eurToUsd);
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsUSDfor = [];
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor);
+
+const movementsDescriptions = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+      mov
+    )}`
+);
+console.log(movementsDescriptions);
+not showing 
+*/
+
 
 
 
